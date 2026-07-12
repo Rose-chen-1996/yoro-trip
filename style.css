@@ -36,7 +36,7 @@ body {
 .hero {
     position: relative;
     width: 100%;
-    height: 40vh;
+    height: 30vh;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -44,11 +44,7 @@ body {
     color: #ffffff;
     overflow: hidden;
     margin-bottom: 40px;
-    /* 養老渓谷の山並みをイメージしたSVGイラスト背景 */
-    background-color: #52614b;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 320'%3联%3Cpath fill='%233e3a35' fill-opacity='0.4' d='M0,192L120,213.3C240,235,480,277,720,277C960,277,1200,235,1320,213.3L1440,192L1440,320L1320,320C1200,320,960,320,720,320C480,320,240,320,120,320L0,320Z'%3E%3C/path%3E%3Cpath fill='%238a9a5b' fill-opacity='0.3' d='M0,96L120,122.7C240,149,480,203,720,192C960,181,1200,107,1320,69.3L1440,32L1440,320L1320,320C1200,320,960,320,720,320C480,320,240,320,120,320L0,320Z'%3E%3C/path%3E%3C/svg%3E");
-    background-size: cover;
-    background-position: bottom;
+    background: linear-gradient(135deg, #52614b, #3e3a35);
 }
 
 .hero-content {
@@ -189,15 +185,13 @@ body {
     border-left: 3px solid #d4a373;
 }
 
-/* --- SPOT CARDS (100%確実に表示されるアイコンイラスト付き背景) --- */
+/* --- SPOT CARDS (絶対に潰れない構造に修正) --- */
 .spots-section {
     margin-bottom: 48px;
 }
 
 .spots-grid {
-    display: flex;
-    flex-direction: column;
-    gap: 24px;
+    display: block; /* 潰れの原因となっていたflexを解除 */
 }
 
 .spot-card {
@@ -206,66 +200,27 @@ body {
     overflow: hidden;
     box-shadow: 0 4px 12px rgba(62, 58, 53, 0.05);
     border: 1px solid var(--border-color);
+    margin-bottom: 24px;
 }
 
+/* 背景を「ブロック（横一杯）」にして高さを固定。絵文字を巨大化 */
 .card-img-wrap {
-    width: 100%;
-    height: 140px;
-    display: flex;
+    display: flex !important;
+    width: 100% !important;
+    height: 90px !important;
     align-items: center;
     justify-content: center;
-    color: #ffffff;
-    font-weight: 600;
-    font-size: 1.1rem;
-    letter-spacing: 0.05em;
-    text-shadow: 0 2px 4px rgba(0,0,0,0.3);
-    background-size: 60px !important;
-    background-repeat: no-repeat !important;
-    background-position: center 25px !important;
-    padding-top: 70px; /* イラストの下に文字が来るように調整 */
+    font-size: 2.5rem !important; /* 絵文字のサイズ */
 }
 
-/* 1. 粟又の滝（流れる滝のイラスト） */
-.bg-awamata { 
-    background: linear-gradient(135deg, #a3b19b, #52614b),
-                url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='1.5'%3E%3Cpath d='M12 3v13M8 6v8M16 5v10M6 18c2 0 2 2 4 2s2-2 4-2 2 2 4 2'/%3E%3C/svg%3E");
-}
-
-/* 2. ジェラート（アイスクリームのイラスト） */
-.bg-gelateria { 
-    background: linear-gradient(135deg, #dfd7c2, #c4a47a),
-                url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='1.5'%3E%3Cpath d='M12 2a4 4 0 0 0-4 4v1c0 1 1 2 2 2h4c1 0 2-1 2-2V6a4 4 0 0 0-4-4zM6 14l6 8 6-8H6z'/%3E%3C/svg%3E");
-}
-
-/* 3. ごりやくの湯（温泉マーク・湯気のイラスト） */
-.bg-goriyaku { 
-    background: linear-gradient(135deg, #7d6b58, #5c5346),
-                url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='1.5'%3E%3Cpath d='M12 22a8 8 0 0 0 8-8H4a8 8 0 0 0 8 8zM8 4c0-2 2-2 2-4M12 5c0-2 2-2 2-4M16 4c0-2 2-2 2-4'/%3E%3C/svg%3E");
-}
-
-/* 4. Fika (キャンプテント・焚き火のイラスト) */
-.bg-fika { 
-    background: linear-gradient(135deg, #52614b, #3e3a35),
-                url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='1.5'%3E%3Cpath d='M4 20L12 4l8 16H4zM12 4v16'/%3E%3C/svg%3E");
-}
-
-/* 5. トンネル（アーチ・光のイラスト） */
-.bg-tunnel { 
-    background: linear-gradient(135deg, #3e3a35, #7d6b58),
-                url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='1.5'%3E%3Cpath d='M4 20V12a8 8 0 0 1 16 0v8M2 20h20'/%3E%3C/svg%3E");
-}
-
-/* 6. 中瀬遊歩道（足跡・ウォーキングのイラスト） */
-.bg-nakase { 
-    background: linear-gradient(135deg, #8a9a5b, #a3b19b),
-                url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='1.5'%3E%3Cpath d='M15 4a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm-4 6l-2 5H7M13 8l-2 6 3 4M18 13l-4-3'/%3E%3C/svg%3E");
-}
-
-/* 7. ランチ候補（スプーンとフォークのイラスト） */
-.bg-lunch { 
-    background: linear-gradient(135deg, #dfd7c2, #7d6b58),
-                url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='1.5'%3E%3Cpath d='M11 3v9H9V3h2zm0 0h1v9h-1V3zM18 3v13h-2V3h2zm-2 13v5h-2v-5h2zM7 12h5v2H7v-2z'/%3E%3C/svg%3E");
-}
+/* 背景グラデーションカラーの指定 */
+.bg-awamata   { background: linear-gradient(135deg, #a3b19b, #52614b); }
+.bg-gelateria { background: linear-gradient(135deg, #dfd7c2, #c4a47a); }
+.bg-goriyaku  { background: linear-gradient(135deg, #7d6b58, #5c5346); }
+.bg-fika      { background: linear-gradient(135deg, #52614b, #3e3a35); }
+.bg-tunnel    { background: linear-gradient(135deg, #4a535a, #343a40); }
+.bg-nakase    { background: linear-gradient(135deg, #8a9a5b, #a3b19b); }
+.bg-lunch     { background: linear-gradient(135deg, #dfd7c2, #7d6b58); }
 
 .card-body {
     padding: 18px;
